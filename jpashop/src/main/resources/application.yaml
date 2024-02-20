@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/jpashop
+    username: sa
+    password:
+      driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create  # 애플리케이션 실행시점에 기존 엔티티 다 지우고 다시 테이블 자동 생성
+    properties:
+      hibernate:
+#        show_sql: true
+        format_sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug  # 운영에서 sql은 logger를 통해서 찍어야함
+    org.hibernate.orm.jdbc.bind: trace  # 쿼리 파라미터 남겨주는 로그(spring boot 3.x 이상, hibernate6 이상)
